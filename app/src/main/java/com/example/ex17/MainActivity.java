@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
 
-    AlertDialog.Builder adb;
+    AlertDialog.Builder adb1,adb2,adb3;
     ConstraintLayout cl;
     Intent si;
     final String[] colors = {"Red","Green","Blue"};
@@ -49,24 +49,24 @@ public class MainActivity extends AppCompatActivity {
          * @param view
          */
         int[] color = new int[]{0,0,0};
-        adb = new AlertDialog.Builder(this);
-        adb.setTitle("Choose color");
+        adb1 = new AlertDialog.Builder(this);
+        adb1.setTitle("Choose color");
 
-        adb.setItems(colors, new DialogInterface.OnClickListener(){
+        adb1.setItems(colors, new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 color[which]=255;
                 cl.setBackgroundColor(Color.rgb(color[0],color[1],color[2]));
             }
         });
-        adb.setPositiveButton("Cancel",new DialogInterface.OnClickListener() {
+        adb1.setPositiveButton("Cancel",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-        adb.setCancelable(false);
-        adb.create().show();
+        adb1.setCancelable(false);
+        adb1.create().show();
     }
 
     public void run2(View view) {
@@ -77,31 +77,31 @@ public class MainActivity extends AppCompatActivity {
          * @param view
          */
         int[] color = new int[]{0,0,0};
-        adb = new AlertDialog.Builder(this);
-        adb.setTitle("Choose color");
+        adb2 = new AlertDialog.Builder(this);
+        adb2.setTitle("Choose color");
 
-        adb.setMultiChoiceItems(colors, null, new DialogInterface.OnMultiChoiceClickListener() {
+        adb2.setMultiChoiceItems(colors, null, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                 if (isChecked) color[which]=255;
                 else if (color[which]==255) color[which]=0;
             }
         });
-        adb.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+        adb2.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 cl.setBackgroundColor(Color.rgb(color[0],color[1],color[2]));
             }
         });
-        adb.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+        adb2.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-        adb.setCancelable(false);
-        adb.create().show();
+        adb2.setCancelable(false);
+        adb2.create().show();
     }
 
 
@@ -119,29 +119,29 @@ public class MainActivity extends AppCompatActivity {
          * The method will open a dialog that can display in a toast the input of the user.
          * @param view
          */
-        adb = new AlertDialog.Builder(this);
-        adb.setTitle("enter text");
+        adb3 = new AlertDialog.Builder(this);
+        adb3.setTitle("enter text");
 
         final EditText eT = new EditText(this);
         eT.setHint("Enter Text");
-        adb.setView(eT);
+        adb3.setView(eT);
 
-        adb.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+        adb3.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
 
-        adb.setPositiveButton("Okay",new DialogInterface.OnClickListener() {
+        adb3.setPositiveButton("Okay",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), eT.getText().toString(), Toast.LENGTH_LONG).show();
             }
         });
 
-        adb.setCancelable(false);
-        adb.create().show();
+        adb3.setCancelable(false);
+        adb3.create().show();
     }
 
 
