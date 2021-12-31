@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
      * @since         17/12/2021
      *
      * MainActivity class, the main screen.
-     * The class contains function that are linked to each button in the app.
+     * The class contains functions that are linked to each button in the app.
      */
 
 
